@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-
+  plugins: ['module-resolver'],
   extends: [
     'universe',
     'universe/native',
@@ -8,6 +8,9 @@ module.exports = {
     'universe/shared/typescript-analysis',
   ],
   rules: {
+    // Eslint Module Resolver
+    'module-resolver/use-alias': 2,
+
     // Ensures props and state inside functions are always up-to-date
     'react-hooks/exhaustive-deps': 'warn',
 
