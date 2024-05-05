@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "plugins": [
+    "module-resolver",
+    "prettier",
+    "react",
+    "react-native",
+    "unused-imports",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "universe",
+    "universe/native",
+    "universe/web",
+    "universe/shared/typescript-analysis"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    // Eslint Module Resolver
+    "module-resolver/use-alias": 2,
+    // React
+    // Ensures props and state inside functions are always up-to-date
+    "react-hooks/exhaustive-deps": "off",
+    "react/no-unstable-nested-components": [
+      "off",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "prettier/prettier": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/no-array-index-key": "warn",
+    "react/jsx-key": [
+      1,
+      {
+        "checkFragmentShorthand": true
+      }
+    ],
+    // React Native
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "react-native/no-raw-text": 2,
+    "react-native/no-single-element-style-arrays": 2,
+    // Note: you must disable the base rule as it can report incorrect errors
+    "no-unused-vars": 1,
+    "unused-imports/no-unused-imports": ["warn"],
+    "@typescript-eslint/no-unused-vars": [
+      "off",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/order": ["off"],
+    // Note: you must disable the base rule as it can report incorrect errors
+    "no-shadow": "off",
+    // skip shadow with function parameters
+    "@typescript-eslint/no-shadow": [
+      "warn",
+      {
+        "ignoreFunctionTypeParameterNameValueShadow": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.d.ts"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    }
+  ]
+}

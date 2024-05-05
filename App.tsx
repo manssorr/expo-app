@@ -1,6 +1,5 @@
 import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
-
 import Navigator from '@/navigation';
 import theme from '@/utils/theme';
 
