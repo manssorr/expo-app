@@ -1,6 +1,6 @@
 // ** Core Packages
 import { NavigationContainer } from '@react-navigation/native';
-import AuthStackNavigator from './AuthStackNavigator';
+import AuthStack from './stack/AuthStack';
 
 // **** Assets ****
 // ** import icons
@@ -49,7 +49,7 @@ const MainNavigator = (): React.ReactElement => {
 
   return (
     <NavigationContainer>
-      <AuthStackNavigator />
+      {user ? <AuthStack /> : <HomeTab />}
     </NavigationContainer>
   );
 };
