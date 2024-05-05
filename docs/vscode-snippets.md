@@ -53,6 +53,8 @@
       "  ",
       "  // ** Event Handlers",
       "  ",
+      "  // ** Custom hooks",
+      "  ",
       "  // ** Operations",
       "  ",
       "  return (",

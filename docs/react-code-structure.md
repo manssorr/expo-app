@@ -202,12 +202,13 @@ useEffect(() => {}, []);
 // Event Handlers
 const handleIncrement = () => {};
 
-// Constants
-// Redux State
-// Local State
-// useEffect for loading data
-// useEffect for user-related operations
-// Event Handlers
+// ** Props
+// ** Constants
+// ** Redux State
+// ** Local State
+// ** useEffect for loading data
+// ** Custom hooks
+// ** Event Handlers
 ```
 
 ## Conclusion
