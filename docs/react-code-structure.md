@@ -209,6 +209,7 @@ const handleIncrement = () => {};
 // ** useEffect for loading data
 // ** Custom hooks
 // ** Event Handlers
+// ** Operations: if condetions ..etc
 ```
 
 ## Conclusion
