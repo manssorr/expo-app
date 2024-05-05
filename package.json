@@ -10,7 +10,8 @@
     "lint": "eslint --fix . --ext .ts --ext .tsx --ext .js --ext .jsx",
     "lint:check": "eslint . --ext .ts --ext .tsx --ext .js --ext .jsx",
     "format": "prettier --write ./src",
-    "format:check": "prettier --check ./src"
+    "format:check": "prettier --check ./src",
+    "refresh-deps": "rm -rf node_modules/.yarn-integrity && yarn install"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.21.0",
@@ -43,8 +44,9 @@
     "eslint": "8",
     "eslint-config-universe": "^12.0.1",
     "eslint-plugin-module-resolver": "^1.5.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.1.3"
+    "typescript": "^5.3.3"
   },
   "private": true,
   "eslintConfig": {

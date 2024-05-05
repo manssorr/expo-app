@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  plugins: ['module-resolver'],
+  plugins: ['module-resolver', '@typescript-eslint', 'unused-imports'],
   extends: [
     'universe',
     'universe/native',
@@ -11,10 +11,8 @@ module.exports = {
     // Eslint Module Resolver
     'module-resolver/use-alias': 2,
 
-    // Ensures props and state inside functions are always up-to-date
-    'react-hooks/exhaustive-deps': 'warn',
-
     // React specific
+    // Ensures props and state inside functions are always up-to-date
     'react-hooks/exhaustive-deps': 'off',
     'react/no-unstable-nested-components': ['off', { allowAsProps: true }],
     'react-native/no-inline-styles': 'off',
