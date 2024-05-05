@@ -12,8 +12,8 @@ import { StyleSheet } from 'react-native';
 // ** import shared components
 
 // ** import specific components
-import SignInScreen from '@/screens/sign-in-screen/SignInScreen';
-import SignUpScreen from '@/screens/sign-up-screen/SignUpScreen';
+import SignInScreen from '@/screens/sign-in/SignInScreen';
+import SignUpScreen from '@/screens/signup/SignUpScreen';
 import WelcomeScreen from '@/screens/welcome-screen/WelcomeScreen';
 
 // ** import sub pages/sections
@@ -32,9 +32,9 @@ import WelcomeScreen from '@/screens/welcome-screen/WelcomeScreen';
 import type { AuthStackParamList } from '@/navigation/types';
 
 // ** local constants
-const AuthStack = createNativeStackNavigator<AuthStackParamList>();
+const Stack = createNativeStackNavigator<AuthStackParamList>();
 
-const AuthStackNavigator = (): React.ReactElement => {
+const AuthStack = (): React.ReactElement => {
   // Constants
 
   // Redux State
@@ -46,16 +46,14 @@ const AuthStackNavigator = (): React.ReactElement => {
   // Event Handlers
 
   return (
-    <AuthStack.Navigator
-      initialRouteName="Welcome"
-      screenOptions={{ headerShown: true }}>
-      <AuthStack.Screen name="Welcome" component={WelcomeScreen} />
-      <AuthStack.Screen name="SignIn" component={SignInScreen} />
-      <AuthStack.Screen name="SignUp" component={SignUpScreen} />
-    </AuthStack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+    </Stack.Navigator>
   );
 };
 
-export default AuthStackNavigator;
+export default AuthStack;
 
 const styles = StyleSheet.create({});
