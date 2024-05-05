@@ -63,15 +63,15 @@ const Button = (props: IProps): React.ReactElement<IProps> => {
   }
 
   return (
-    <Box
-      backgroundColor="primary"
-      borderRadius="rounded-7xl"
-      alignItems="center"
-      p="4">
-      <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
+      <Box
+        backgroundColor="primary"
+        borderRadius="rounded-7xl"
+        alignItems="center"
+        p="4">
         <Text color="white"> {text}</Text>
-      </TouchableOpacity>
-    </Box>
+      </Box>
+    </TouchableOpacity>
   );
 };
 
