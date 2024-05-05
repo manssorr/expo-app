@@ -1,14 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
+import MainNavigator from './MainNavigator';
 
-import AuthStackNavigator from './AuthStackNavigator';
-
-const Navigator = () => {
-  const user = true;
-  return (
-    <NavigationContainer>
-      <AuthStackNavigator />
-    </NavigationContainer>
-  );
-};
-
-export default Navigator;
+export default MainNavigator;
