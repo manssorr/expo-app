@@ -9,7 +9,7 @@ import { Text, SafeAreaView, StyleSheet } from 'react-native';
 // ** import third party
 
 // ** import shared components
-import Button from '@/components/Button';
+import Button from '@/components/shared/Button';
 import { Box } from '@/utils/theme';
 import { useNavigation } from '@react-navigation/native';
 import type { AuthScreenNavigationType } from '@/navigation/types';
@@ -53,10 +53,10 @@ const WelcomeScreen = (props: IProps): React.ReactElement<IProps> => {
 
   // ** Event Handlers
   const navigateToSignInScreen = () => {
-    navigation.navigate('SignIn');
+    navigation.navigate('Signin');
   };
   const navigateToSignUpScreen = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('Signup');
   };
   const handleOnStartPress = () => {
     navigateToSignInScreen();

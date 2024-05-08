@@ -1,4 +1,5 @@
 // ** Core Packages
+import { SafeAreaWrapper } from '@/components/shared';
 import { StyleSheet, Text, View } from 'react-native';
 
 // **** Assets ****
@@ -51,9 +52,9 @@ const CreateCategoryScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Operations
 
   return (
-    <View>
+    <SafeAreaWrapper>
       <Text>CreateCategoryScreen</Text>
-    </View>
+    </SafeAreaWrapper>
   );
 };
 

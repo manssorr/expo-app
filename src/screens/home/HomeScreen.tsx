@@ -1,4 +1,5 @@
 // ** Core Packages
+import SafeAreaWrapper from '@/components/shared/safe-area-wrapper';
 import { StyleSheet, Text, View } from 'react-native';
 
 // **** Assets ****
@@ -51,9 +52,9 @@ const HomeScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Operations
 
   return (
-    <View>
+    <SafeAreaWrapper>
       <Text>HomeScreen</Text>
-    </View>
+    </SafeAreaWrapper>
   );
 };
 

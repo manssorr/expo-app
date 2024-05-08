@@ -12,9 +12,6 @@ import { StyleSheet } from 'react-native';
 // ** import shared components
 
 // ** import specific components
-import SignInScreen from '@/screens/sign-in/SignInScreen';
-import SignUpScreen from '@/screens/signup/SignUpScreen';
-import WelcomeScreen from '@/screens/welcome-screen/WelcomeScreen';
 
 // ** import sub pages/sections
 
@@ -30,6 +27,8 @@ import WelcomeScreen from '@/screens/welcome-screen/WelcomeScreen';
 
 // ** types
 import type { HomeStackParamList } from '@/navigation/types';
+import HomeScreen from '@/screens/home';
+import EditTaskScreen from '@/screens/edit-task';
 
 // ** local constants
 const Stack = createNativeStackNavigator<HomeStackParamList>();
@@ -46,9 +45,12 @@ const HomeStack = (): React.ReactElement => {
   // Event Handlers
 
   return (
-    <Stack.Navigator screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="Home" component={WelcomeScreen} />
-      <Stack.Screen name="EditTask" component={SignInScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="EditTask" component={EditTaskScreen} />
     </Stack.Navigator>
   );
 };

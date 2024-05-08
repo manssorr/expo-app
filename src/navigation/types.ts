@@ -13,8 +13,8 @@ import { ICategory, ITask } from '@/types';
 
 export type AuthStackParamList = {
   Welcome: undefined;
-  SignIn: undefined;
-  SignUp: undefined;
+  Signin: undefined;
+  Signup: undefined;
 };
 
 export type RootBottomTabParamList = {

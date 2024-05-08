@@ -12,9 +12,6 @@ import { StyleSheet } from 'react-native';
 // ** import shared components
 
 // ** import specific components
-import SigninScreen from '@/screens/signin/SigninScreen';
-import SignupScreen from '@/screens/signup/SignupScreen';
-import WelcomeScreen from '@/screens/today/welcome/WelcomeScreen';
 
 // ** import sub pages/sections
 
@@ -29,12 +26,15 @@ import WelcomeScreen from '@/screens/today/welcome/WelcomeScreen';
 // ** import apis
 
 // ** types
-import type { AuthStackParamList } from '@/navigation/types';
+import type { CategoriesStackParamList } from '@/navigation/types';
+import CategoriesScreen from '@/screens/categories/CategoriesScreen';
+import CreateCategoryScreen from '@/screens/create-category/CreateCategoryScreen';
+import CategoryScreen from '@/screens/category/CategoryScreen';
 
 // ** local constants
-const Stack = createNativeStackNavigator<AuthStackParamList>();
+const Stack = createNativeStackNavigator<CategoriesStackParamList>();
 
-const AuthStack = (): React.ReactElement => {
+const CategoriesStack = (): React.ReactElement => {
   // Constants
 
   // Redux State
@@ -47,13 +47,13 @@ const AuthStack = (): React.ReactElement => {
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      <Stack.Screen name="Signin" component={SignupScreen} />
-      <Stack.Screen name="Signup" component={SignupScreen} />
+      <Stack.Screen name="Categories" component={CategoriesScreen} />
+      <Stack.Screen name="Category" component={CategoryScreen} />
+      <Stack.Screen name="CreateCategory" component={CreateCategoryScreen} />
     </Stack.Navigator>
   );
 };
 
-export default AuthStack;
+export default CategoriesStack;
 
 const styles = StyleSheet.create({});

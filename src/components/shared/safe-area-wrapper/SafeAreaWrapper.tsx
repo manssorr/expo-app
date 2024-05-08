@@ -1,6 +1,9 @@
 // ** Core Packages
-import { SafeAreaWrapper } from '@/components/shared';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  type SafeAreaViewProps,
+} from 'react-native-safe-area-context';
 
 // **** Assets ****
 // ** import icons
@@ -27,13 +30,14 @@ import { StyleSheet, Text, View } from 'react-native';
 
 // ** import/local types
 
-interface IProps {}
+interface IProps extends SafeAreaViewProps {}
 
 // ** local constants
 
-const CategoryScreen = (props: IProps): React.ReactElement<IProps> => {
+const SafeAreaWrapper = (props: IProps): React.ReactElement<IProps> => {
   // ** Props
   // Constants props
+  const { children } = props;
 
   // Dynamic props
 
@@ -52,12 +56,16 @@ const CategoryScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Operations
 
   return (
-    <SafeAreaWrapper>
-      <Text>CategoryScreen</Text>
-    </SafeAreaWrapper>
+    <SafeAreaView style={styles.container} {...props}>
+      {children}
+    </SafeAreaView>
   );
 };
 
-export default CategoryScreen;
+export default SafeAreaWrapper;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

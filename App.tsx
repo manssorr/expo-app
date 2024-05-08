@@ -2,14 +2,15 @@ import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
 import Navigator from '@/navigation';
 import theme from '@/utils/theme';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider>
         <Navigator />
-      </ThemeProvider>
-      <StatusBar style="auto" />
-    </>
+      </SafeAreaProvider>
+      <StatusBar translucent />
+    </ThemeProvider>
   );
 }

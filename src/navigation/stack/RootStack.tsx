@@ -29,12 +29,13 @@ import WelcomeScreen from '@/screens/today/welcome/WelcomeScreen';
 // ** import apis
 
 // ** types
-import type { AuthStackParamList } from '@/navigation/types';
+import type { AppStackParamList } from '@/navigation/types';
+import HomeButtomTab from '@/navigation/tab/HomeButtomTab';
 
 // ** local constants
-const Stack = createNativeStackNavigator<AuthStackParamList>();
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
-const AuthStack = (): React.ReactElement => {
+const RootStack = (): React.ReactElement => {
   // Constants
 
   // Redux State
@@ -46,14 +47,15 @@ const AuthStack = (): React.ReactElement => {
   // Event Handlers
 
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      <Stack.Screen name="Signin" component={SignupScreen} />
-      <Stack.Screen name="Signup" component={SignupScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="Root" component={HomeButtomTab} />
     </Stack.Navigator>
   );
 };
 
-export default AuthStack;
+export default RootStack;
 
 const styles = StyleSheet.create({});

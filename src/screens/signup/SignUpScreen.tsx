@@ -1,4 +1,5 @@
 // ** Core Packages
+import { SafeAreaWrapper } from '@/components/shared';
 import { StyleSheet, Text, View } from 'react-native';
 
 // **** Assets ****
@@ -30,7 +31,7 @@ interface IProps {}
 
 // ** local constants
 
-const SignUpScreen = (props: IProps): React.ReactElement<IProps> => {
+const SignupScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Props
   // Constants props
 
@@ -51,12 +52,12 @@ const SignUpScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Operations
 
   return (
-    <View>
+    <SafeAreaWrapper>
       <Text>SignUpScreen</Text>
-    </View>
+    </SafeAreaWrapper>
   );
 };
 
-export default SignUpScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({});

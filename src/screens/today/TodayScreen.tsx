@@ -1,4 +1,6 @@
 // ** Core Packages
+import { SafeAreaWrapper } from '@/components/shared';
+import { Box } from '@/utils/theme';
 import { StyleSheet, Text, View } from 'react-native';
 
 // **** Assets ****
@@ -51,9 +53,11 @@ const TodayScreen = (props: IProps): React.ReactElement<IProps> => {
   // ** Operations
 
   return (
-    <View>
-      <Text>TodayScreen</Text>
-    </View>
+    <SafeAreaWrapper>
+      <Box>
+        <Text>TodayScreen</Text>
+      </Box>
+    </SafeAreaWrapper>
   );
 };
 
