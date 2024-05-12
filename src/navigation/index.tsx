@@ -1,3 +1,3 @@
-import MainNavigator from './AppNavigator';
+import AppNavigator from './AppNavigator';
 
-export default MainNavigator;
+export default AppNavigator;

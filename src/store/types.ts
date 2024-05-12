@@ -1,8 +1,9 @@
-import type { IUser } from '@/types';
+import type { IAuthenticatedUser, IUser } from '@/types';
 
-export type NullishUser = null | undefined | IUser;
+export type NullishUser = null | undefined | IAuthenticatedUser;
 
 export interface IUserGlobalStore {
   user: NullishUser;
-  updateUser: (user: NullishUser) => void;
+  updateUser: (user: IAuthenticatedUser) => void;
+  resetUser: () => void;
 }

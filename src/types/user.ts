@@ -4,7 +4,4 @@ export interface IUser {
   password: string;
 }
 
-export interface IAuthenticatedUser {
-  email: string;
-  name: string;
-}
+export type IAuthenticatedUser = Omit<IUser, 'password'>;

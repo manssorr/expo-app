@@ -5,12 +5,17 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 const useUserGlobalStore = create<IUserGlobalStore>()(
-  persist((set, get) => ({
-    user: null,
-    updateUser: (user: IUser) => set({ user }),
-  })),
-  {
-    name: 'todomo-app-user-store',
-    storage: createJSONStorage(() => AsyncStorage),
-  },
+  persist(
+    (set, get) => ({
+      user: null,
+      updateUser: user => set({ user }),
+      resetUser: () => set({ user: null }),
+    }),
+    {
+      name: 'todomo-app-user-store',
+      storage: createJSONStorage(() => AsyncStorage),
+    },
+  ),
 );
+
+export default useUserGlobalStore;
