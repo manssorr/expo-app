@@ -2,3 +2,9 @@ appId: com.apple.Maps
 name: Maps Test
 ---
 - launchApp
+- tapOn: 'Search Maps'
+- inputText: 'Salvador, Bahia, Brazil'
+- pressKey: Enter
+- swipe:
+    start: 50%, 80%
+    end: 50%, 10%
