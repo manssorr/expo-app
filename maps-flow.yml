@@ -1,0 +1,4 @@
+appId: com.apple.Maps
+name: Maps Test
+---
+- launchApp
