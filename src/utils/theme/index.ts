@@ -2,6 +2,7 @@ import { createBox, createText, createTheme } from '@shopify/restyle';
 
 import { colors } from './colors';
 import { textVariants } from './text-variants';
+import { buttonVariants } from './button-variants';
 
 const theme = createTheme({
   colors,
@@ -28,8 +29,13 @@ const theme = createTheme({
     'rounded-4xl': 16,
     'rounded-5xl': 20,
     'rounded-7xl': 28,
+    'rounded-full': 400,
   },
   textVariants,
+  buttonVariants,
+
+  breakpoints: {},
+  zIndices: undefined,
 });
 
 export type Theme = typeof theme;

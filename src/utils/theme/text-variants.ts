@@ -1,5 +1,18 @@
 export const textVariants = {
   defaults: {},
+  header: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: 24,
+  },
+  body: {},
+  caption: {},
+
+  buttonLabel: {
+    fontWeight: 'bold',
+    color: 'white',
+  },
+
   textXs: {
     fontSize: 12,
     lineHeight: 16,
