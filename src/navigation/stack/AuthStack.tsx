@@ -12,9 +12,9 @@ import { StyleSheet } from 'react-native';
 // ** import shared components
 
 // ** import specific components
-import SigninScreen from '@/screens/signin/SigninScreen';
-import SignupScreen from '@/screens/signup/SignupScreen';
-import WelcomeScreen from '@/screens/today/welcome/WelcomeScreen';
+import SigninScreen from '@/screens/signin';
+import WelcomeScreen from '@/screens/welcome';
+import SignupScreen from '@/screens/signup';
 
 // ** import sub pages/sections
 
@@ -48,7 +48,7 @@ const AuthStack = (): React.ReactElement => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      <Stack.Screen name="Signin" component={SignupScreen} />
+      <Stack.Screen name="Signin" component={SigninScreen} />
       <Stack.Screen name="Signup" component={SignupScreen} />
     </Stack.Navigator>
   );

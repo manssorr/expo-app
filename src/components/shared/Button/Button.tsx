@@ -4,16 +4,38 @@ import {
   TouchableOpacity,
   type TouchableOpacityProps,
 } from 'react-native';
-import { Box, Text } from '@/utils/theme';
 
-// **** Assets ****
 // ** import icons
 
 // ** import assets
 
 // ** import third party
+import {
+  backgroundColor,
+  backgroundColorShorthand,
+  border,
+  composeRestyleFunctions,
+  createVariant,
+  layout,
+  position,
+  shadow,
+  spacing,
+  spacingShorthand,
+  useRestyle,
+  type BackgroundColorProps,
+  type BackgroundColorShorthandProps,
+  type BorderProps,
+  type LayoutProps,
+  type PositionProps,
+  type ShadowProps,
+  type SpacingProps,
+  type SpacingShorthandProps,
+  type VariantProps,
+} from '@shopify/restyle';
 
 // ** import shared components
+import { Box, Text, type Theme } from '@/utils/theme';
+import type { ComponentPropsWithoutRef } from 'react';
 
 // ** import specific components
 
@@ -30,22 +52,67 @@ import { Box, Text } from '@/utils/theme';
 // ** import apis
 
 // ** import/local types
-
 interface IProps {
-  text: string;
+  label: string;
   capitalized?: boolean;
-  onPress?: TouchableOpacityProps['onPress'];
 }
 
+type RestyleProps = VariantProps<Theme, 'buttonVariants'> &
+  BackgroundColorShorthandProps<Theme> &
+  BackgroundColorProps<Theme> &
+  SpacingShorthandProps<Theme> &
+  SpacingProps<Theme> &
+  LayoutProps<Theme> &
+  PositionProps<Theme> &
+  BorderProps<Theme> &
+  ShadowProps<Theme> &
+  ComponentPropsWithoutRef<typeof TouchableOpacity>;
+
 // ** local constants
+const variant = createVariant<Theme, 'buttonVariants'>({
+  themeKey: 'buttonVariants',
+});
 
-const Button = (props: IProps): React.ReactElement<IProps> => {
+const restyleFunctions = [
+  backgroundColorShorthand,
+  backgroundColor,
+  spacingShorthand,
+  spacing,
+  layout,
+  position,
+  border,
+  shadow,
+  variant,
+];
+
+const composedRestyleFunction = composeRestyleFunctions<Theme, RestyleProps>(
+  restyleFunctions,
+);
+
+/**
+ * Button
+ * @param props
+ * @category Components
+ * @subcategory Shared
+ * @rule the wrapperPorps and pressableProps are optional but if provides will override the default props
+ * @example
+ * import { Button } from '@/components/shared';
+ * <Button
+ *   label="Button"
+ *   onPress={() => {}}
+ * />
+ */
+const Button = ({
+  capitalized = true,
+  label,
+  ...rest
+}: IProps & RestyleProps): React.ReactElement<IProps & RestyleProps> => {
   // ** Props
-  // Constants props
-  const { capitalized = true, onPress } = props;
+  // ** Constants props
 
-  // Dynamic props
-  let { text } = props;
+  // ** ynamic props
+
+  const props = useRestyle(composedRestyleFunction, rest);
 
   // ** Constants
 
@@ -59,18 +126,15 @@ const Button = (props: IProps): React.ReactElement<IProps> => {
 
   // ** Operations
   if (capitalized) {
-    text = text.toUpperCase();
+    label = label.toUpperCase();
   }
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Box
-        backgroundColor="primary"
-        borderRadius="rounded-7xl"
-        alignItems="center"
-        p="4">
-        <Text color="white"> {text}</Text>
-      </Box>
+    <TouchableOpacity
+      {...props}
+      // style={styles.normalizeWidth}
+    >
+      <Text color="white"> {label}</Text>
     </TouchableOpacity>
   );
 };

@@ -13,6 +13,8 @@ import Button from '@/components/shared/Button';
 import { Box } from '@/utils/theme';
 import { useNavigation } from '@react-navigation/native';
 import type { AuthScreenNavigationType } from '@/navigation/types';
+import LogoCard from '@/components/logo-card/LogoCard';
+import { DEVICE } from '@/utils/constants';
 
 // ** import specific components
 
@@ -66,9 +68,13 @@ const WelcomeScreen = (props: IProps): React.ReactElement<IProps> => {
 
   return (
     <SafeAreaView>
-      <Box>
+      <Box
+        alignItems="center"
+        // bg="red100"
+      >
+        <LogoCard />
         <Text>Do you want to be more productive?</Text>
-        <Button text="Start your journey" onPress={handleOnStartPress} />
+        <Button label="Start your journey" variant="filled" />
       </Box>
     </SafeAreaView>
   );
