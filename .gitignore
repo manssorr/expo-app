@@ -108,3 +108,4 @@ yarn.lock
 .expo
 # testing
 /coverage
+.scannerwork
