@@ -14,6 +14,7 @@ import {
   backgroundColor,
   backgroundColorShorthand,
   border,
+  color,
   composeRestyleFunctions,
   createVariant,
   layout,
@@ -25,6 +26,7 @@ import {
   type BackgroundColorProps,
   type BackgroundColorShorthandProps,
   type BorderProps,
+  type ColorProps,
   type LayoutProps,
   type PositionProps,
   type ShadowProps,
@@ -34,8 +36,11 @@ import {
 } from '@shopify/restyle';
 
 // ** import shared components
-import { Box, Text, type Theme } from '@/utils/theme';
+import theme, { Box, Text, type Theme } from '@/utils/theme';
 import type { ComponentPropsWithoutRef } from 'react';
+import type { Size } from '@/types';
+import { buttonSizes, buttonVariants } from '@/utils/theme/button-variants';
+import ButtonWrapper from '@/components/shared/Button/ButtonWrapper';
 
 // ** import specific components
 
@@ -55,39 +60,54 @@ import type { ComponentPropsWithoutRef } from 'react';
 interface IProps {
   label: string;
   capitalized?: boolean;
+  size: Size;
+  color?: ColorProps<Theme>;
 }
 
 type RestyleProps = VariantProps<Theme, 'buttonVariants'> &
-  BackgroundColorShorthandProps<Theme> &
-  BackgroundColorProps<Theme> &
+  ColorProps<Theme> &
   SpacingShorthandProps<Theme> &
   SpacingProps<Theme> &
   LayoutProps<Theme> &
   PositionProps<Theme> &
-  BorderProps<Theme> &
   ShadowProps<Theme> &
   ComponentPropsWithoutRef<typeof TouchableOpacity>;
 
 // ** local constants
-const variant = createVariant<Theme, 'buttonVariants'>({
+const variants = createVariant<Theme, 'buttonVariants'>({
   themeKey: 'buttonVariants',
 });
 
 const restyleFunctions = [
-  backgroundColorShorthand,
-  backgroundColor,
+  variants,
+  color,
   spacingShorthand,
   spacing,
   layout,
   position,
-  border,
   shadow,
-  variant,
 ];
 
 const composedRestyleFunction = composeRestyleFunctions<Theme, RestyleProps>(
   restyleFunctions,
 );
+
+const mapVariantToColorsObj = (variant: any, color: any) => {
+  const all: any = {
+    filled: {
+      color,
+      backgroundColor: color,
+    },
+    outline: {
+      color,
+      borderColor: color,
+    },
+    ghost: {
+      colorbg: 'transparent',
+    },
+  };
+  return all[variant];
+};
 
 /**
  * Button
@@ -97,6 +117,8 @@ const composedRestyleFunction = composeRestyleFunctions<Theme, RestyleProps>(
  * @rule the wrapperPorps and pressableProps are optional but if provides will override the default props
  * @example
  * import { Button } from '@/components/shared';
+import { textVariants } from '../../../utils/theme/text-variants';
+import { colors } from '../../../utils/theme/colors';
  * <Button
  *   label="Button"
  *   onPress={() => {}}
@@ -105,14 +127,31 @@ const composedRestyleFunction = composeRestyleFunctions<Theme, RestyleProps>(
 const Button = ({
   capitalized = true,
   label,
+  size = 'md',
+  // borderRadius = 'md',
   ...rest
 }: IProps & RestyleProps): React.ReactElement<IProps & RestyleProps> => {
   // ** Props
-  // ** Constants props
-
-  // ** ynamic props
-
   const props = useRestyle(composedRestyleFunction, rest);
+
+  // ** Constants props
+  const variant = rest.variant ?? 'filled';
+  const color = rest.color;
+  const textVariants = buttonSizes[size].textVariants;
+
+  // ** dynamic props
+  let bgColor = buttonVariants[variant].bg;
+  let borderColor = buttonVariants[variant].borderColor;
+
+  let fontSize =
+    theme.buttonVariants[variant as keyof Theme['buttonVariants']].fontSize;
+  let textColor = theme.buttonVariants[variant as keyof Theme['buttonVariants']]
+    .color as keyof Theme['colors'];
+
+  console.log('rest', variant, rest);
+  console.log('fontSize', variant, fontSize);
+  console.log('fontSize', variant, fontSize);
+  console.log('borderColor', variant, borderColor);
 
   // ** Constants
 
@@ -129,13 +168,25 @@ const Button = ({
     label = label.toUpperCase();
   }
 
+  if (color) {
+    textColor = mapVariantToColorsObj(variant, color).color;
+    bgColor = mapVariantToColorsObj(variant, color).backgroundColor;
+    borderColor = mapVariantToColorsObj(variant, color).borderColor;
+  }
+
   return (
-    <TouchableOpacity
+    <ButtonWrapper
       {...props}
-      // style={styles.normalizeWidth}
-    >
-      <Text color="white"> {label}</Text>
-    </TouchableOpacity>
+      backgroundColor={bgColor}
+      borderColor={borderColor}>
+      <Text
+      // variant="itemTitle"
+      // fontSize={theme.buttonVariants[variant as keyof Theme['buttonVariants']].fontSize}
+      // color={theme.buttonVariants[variant as keyof Theme['buttonVariants']].color as keyof Theme['colors']}>
+      >
+        {label}
+      </Text>
+    </ButtonWrapper>
   );
 };
 

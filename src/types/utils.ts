@@ -9,3 +9,5 @@ export interface IIcon {
   id: string;
   symbol: string;
 }
+
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

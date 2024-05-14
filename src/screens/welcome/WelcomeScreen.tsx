@@ -15,6 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { AuthScreenNavigationType } from '@/navigation/types';
 import LogoCard from '@/components/logo-card/LogoCard';
 import { DEVICE } from '@/utils/constants';
+import { buttonVariants } from '@/utils/theme/button-variants';
 
 // ** import specific components
 
@@ -74,7 +75,16 @@ const WelcomeScreen = (props: IProps): React.ReactElement<IProps> => {
       >
         <LogoCard />
         <Text>Do you want to be more productive?</Text>
-        <Button label="Start your journey" variant="filled" />
+        {/* <Button label="Default" color="red400" /> */}
+        {/* <Button label="filled xs" variant="filled" size="xs" />
+        <Button label="filled sm" variant="filled" size="sm" />
+        <Button label="outlined md" variant="outlined" size="md" />
+        <Button label="filled lg" variant="filled" size="lg" />
+        <Button label="filled xl" variant="filled" size="xl" /> */}
+        <Button label="filled" variant="filled" size="xl" color="red400" />
+
+        {/* <Button label="outlined" variant="outlined" />
+        <Button label="ghost" variant="ghost" /> */}
       </Box>
     </SafeAreaView>
   );

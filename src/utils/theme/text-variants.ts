@@ -1,5 +1,7 @@
 export const textVariants = {
   defaults: {},
+
+  // headers
   header: {
     fontWeight: 'bold',
     color: 'black',
@@ -8,19 +10,15 @@ export const textVariants = {
   body: {},
   caption: {},
 
-  buttonLabel: {
-    fontWeight: 'bold',
-    color: 'white',
-  },
-
+  // text
   textXs: {
     fontSize: 12,
-    lineHeight: 16,
+    lineHeight: 18,
     color: 'gray8',
   },
   textSm: {
     fontSize: 14,
-    lineHeight: 18,
+    lineHeight: 21,
     color: 'gray8',
   },
   textBase: {
@@ -49,3 +47,5 @@ export const textVariants = {
     color: 'gray8',
   },
 };
+
+export type TextVariants = keyof typeof textVariants;

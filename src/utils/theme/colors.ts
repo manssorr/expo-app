@@ -125,16 +125,16 @@ export const tailwindPalette = {
   sky900: '#0c4a6e',
 
   // blue
-  blu50: '#eff6ff',
-  blu100: '#dbeafe',
-  blu200: '#bfdbfe',
-  blu300: '#93c5fd',
-  blu400: '#60a5fa',
-  blu500: '#007AFF',
-  blu600: '#2563eb',
-  blu700: '#1d4ed8',
-  blu800: '#1e40af',
-  blu900: '#1e3a8a',
+  blue50: '#eff6ff',
+  blue100: '#dbeafe',
+  blue200: '#bfdbfe',
+  blue300: '#93c5fd',
+  blue400: '#60a5fa',
+  blue500: '#007AFF',
+  blue600: '#2563eb',
+  blue700: '#1d4ed8',
+  blue800: '#1e40af',
+  blue900: '#1e3a8a',
 
   // violet
   violet50: '#eef2ff',
@@ -224,12 +224,8 @@ export const colors = {
   orange800: tailwindPalette.orange800,
   orange900: tailwindPalette.orange900,
 
-  // Ambers
-  amber50: tailwindPalette.amber50,
-  amber100: tailwindPalette.amber100,
-  amber200: tailwindPalette.amber200,
-
   // grays
+  gray50: tailwindPalette.gray50,
   gray100: tailwindPalette.gray100,
   gray200: tailwindPalette.gray200,
   gray250: tailwindPalette.gray250,
@@ -242,6 +238,7 @@ export const colors = {
   gray900: tailwindPalette.gray900,
 
   // slate
+  slate50: tailwindPalette.slate50,
   slate100: tailwindPalette.slate100,
   slate200: tailwindPalette.slate200,
   slate300: tailwindPalette.slate300,
@@ -253,6 +250,7 @@ export const colors = {
   slate900: tailwindPalette.slate900,
 
   // zinc
+  zinc50: tailwindPalette.zinc50,
   zinc100: tailwindPalette.zinc100,
   zinc200: tailwindPalette.zinc200,
   zinc300: tailwindPalette.zinc300,
@@ -265,6 +263,7 @@ export const colors = {
   zinc900: tailwindPalette.zinc900,
 
   // neutral
+  neutral50: tailwindPalette.neutral50,
   neutral100: tailwindPalette.neutral100,
   neutral200: tailwindPalette.neutral200,
   neutral300: tailwindPalette.neutral300,
@@ -288,6 +287,9 @@ export const colors = {
   red900: tailwindPalette.red900,
 
   // Ambers
+  amber50: tailwindPalette.amber50,
+  amber100: tailwindPalette.amber100,
+  amber200: tailwindPalette.amber200,
   amber300: tailwindPalette.amber300,
   amber400: tailwindPalette.amber400,
   amber500: tailwindPalette.amber500,
@@ -320,17 +322,17 @@ export const colors = {
   sky800: tailwindPalette.sky800,
   sky900: tailwindPalette.sky900,
 
-  // Blues
-  blu50: tailwindPalette.blu50,
-  blu100: tailwindPalette.blu100,
-  blu200: tailwindPalette.blu200,
-  blu300: tailwindPalette.blu300,
-  blu400: tailwindPalette.blu400,
-  blu500: tailwindPalette.blu500,
-  blu600: tailwindPalette.blu600,
-  blu700: tailwindPalette.blu700,
-  blu800: tailwindPalette.blu800,
-  blu900: tailwindPalette.blu900,
+  // Bluees
+  blue50: tailwindPalette.blue50,
+  blue100: tailwindPalette.blue100,
+  blue200: tailwindPalette.blue200,
+  blue300: tailwindPalette.blue300,
+  blue400: tailwindPalette.blue400,
+  blue500: tailwindPalette.blue500,
+  blue600: tailwindPalette.blue600,
+  blue700: tailwindPalette.blue700,
+  blue800: tailwindPalette.blue800,
+  blue900: tailwindPalette.blue900,
 
   // Violets
   violet50: tailwindPalette.violet50,
